@@ -10,7 +10,13 @@
 
 <ion-content padding>
       <button detail-none (click)="expandSensor(sensor)" ion-item *ngFor="let sensor of sensors">
-          <h2>{{ sensor.name}}</h2>
+
+                <span col-3>{{ sensor.setpoint}}</span>-
+                <span col-3>{{ sensor.actualvalue}}</span>-
+                <span col-3>{{ sensor.settype}}</span>-
+                <span col-3>{{ sensor.islog}}</span>
+
+    
         <expandable [expandHeight]="itemExpandHeight" [expanded]="sensor.planexpanded">
             <ion-item *ngFor="let plan of sensor.dayplans" >
                   <ion-grid>
@@ -24,7 +30,7 @@
                   </ion-grid>
               </ion-item>
         </expandable>
-          <button ion-button clear item-end>View</button>
+          <button ion-button clear item-end>></button>
         </button>
 
 </ion-content>

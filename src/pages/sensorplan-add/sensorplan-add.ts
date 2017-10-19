@@ -1,7 +1,7 @@
 import { SensorService } from './../sensor/sensor.service';
 import { Dayplan } from './dayplan.interface';
 import { Sensorplan } from './sensorplan.interface';
-import { Sensor } from '../sensor-edit/sensor.interface';
+import { Sensor } from '../sensor/sensor.interface';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
