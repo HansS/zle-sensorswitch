@@ -1,0 +1,40 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Steuerplan für {{ sensor.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<!--  
+    id, sensorid,name,  frequency //  allways, daily, weekly
+    fromtime,totime,setpoint, unit
+-->
+<form #f="ngForm">
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Name</ion-label>
+      <ion-input [(ngModel)]="sensorplan.name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Häufigkeit</ion-label>
+      <ion-select [(ngModel)]="sensorplan.frequency" name="frequency" required>
+        <ion-option *ngFor="let  f of frequencies">{{ f  }}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let wd of weekdays" >
+      <ion-input  [(ngModel)]="wd.day" name="day"></ion-input>
+      <ion-datetime displayFormat="HH" [(ngModel)]="wd.fromtime" name="fromtime"></ion-datetime>
+      <ion-datetime displayFormat="HH" [(ngModel)]="wd.totime" name="totime"></ion-datetime>
+      <ion-input type="number" [(ngModel)]="wd.setpoint" name="setpoint"></ion-input>
+      
+    </ion-item>
+  </ion-list>
+</form>
+</ion-content>

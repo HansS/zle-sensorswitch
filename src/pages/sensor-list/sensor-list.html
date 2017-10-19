@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>ZLE SensorSwitch</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+      <button detail-none (click)="expandSensor(sensor)" ion-item *ngFor="let sensor of sensors">
+          <h2>{{ sensor.name}}</h2>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="sensor.planexpanded">
+            <ion-item *ngFor="let plan of sensor.dayplans" >
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-2>{{ plan.day }}</ion-col>
+                      <ion-col col-4>{{ plan.fromtime }}</ion-col>
+                      <ion-col col-4>{{ plan.totime }}</ion-col>
+                      <ion-col col-1>{{ plan.setpoint }}</ion-col>
+                      <ion-col col-1>{{ plan.unit }}</ion-col>
+                    </ion-row>
+                  </ion-grid>
+              </ion-item>
+        </expandable>
+          <button ion-button clear item-end>View</button>
+        </button>
+
+</ion-content>
