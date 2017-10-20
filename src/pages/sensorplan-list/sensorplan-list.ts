@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Sensor } from '../sensor-edit/sensor.interface';
+import { Sensor } from '../sensor/sensor.interface';
 import { SensorplanAddPage } from '../sensorplan-add/sensorplan-add';
 
 /**

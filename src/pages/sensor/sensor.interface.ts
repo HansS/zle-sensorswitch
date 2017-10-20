@@ -1,16 +1,15 @@
-import { Dayplan } from '../sensorplan-add/dayplan.interface';
+import { Sensortype } from './sensortype.interface';
+import { Dayplan } from './dayplan.interface';
 
 export interface Sensor {
     id: number;
+    sensortype:  Sensortype;
     uuid: string;
     name: string;
-    typedisplay: string;
-    type: string;
-    unit: string;
+    isactive: boolean;
     setpoint: number;
     actualvalue: number;
-    settype: string;
-    islog: boolean;
-    planexpanded: boolean;
+    isdayplan: boolean;
     dayplans: Dayplan[];
+    islog: boolean;
 }

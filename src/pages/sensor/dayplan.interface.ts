@@ -3,5 +3,6 @@ export interface Dayplan {
     fromtime: string;
     totime: string;
     setpoint: number;
-    unit: string;
+    offset?: number;
+    offsetrandom?: number;
 }

@@ -48,9 +48,9 @@ export class SensorListPage {
         this.sensors.map((listItem) => {
     
           if(sensor == listItem){
-            listItem.planexpanded = !listItem.planexpanded;
+            listItem.isdayplan = !listItem.isdayplan;
           } else {
-            listItem.planexpanded = false;
+            listItem.isdayplan = false;
           }
     
           return listItem;

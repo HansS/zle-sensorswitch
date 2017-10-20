@@ -1,4 +1,4 @@
-import { Dayplan } from './dayplan.interface';
+import { Dayplan } from '../sensor/dayplan.interface';
 export interface Sensorplan {
     id: number;
     sensorid: number;
