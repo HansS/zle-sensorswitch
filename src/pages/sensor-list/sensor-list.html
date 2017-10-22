@@ -6,49 +6,84 @@
 
 </ion-header>
 
-<pre>sensors | json</pre>
 <ion-content padding>
   <ion-list no-lines>
 
     <ion-card *ngFor="let sensor of sensors">
       <ion-grid>
         <ion-card-header>
-          <ion-row justify-content-start>
-            <span col-3>Sensor</span>
-            <span col-2>Aktiv</span>
-            <span col-2>Soll</span>
-            <span col-2>Ist</span>
-            <span col-3>mit Plan</span>
-          </ion-row>
+          <ion-item text-center>Plan für {{ sensor.name }}</ion-item>
           <hr />
         </ion-card-header>
         <ion-card-content>
-          <ion-row justify-content-start>
-            <span col-2>{{ sensor.name}}</span>
-            <ion-item col-3>
-              <ion-toggle [(ngModel)]="sensor.isactive"></ion-toggle>
+          <ion-row>
+            <ion-item>
+              <ion-label col-10>Start/Stop</ion-label>
+              <ion-toggle col-2 [(ngModel)]="sensor.isactive"></ion-toggle>
             </ion-item>
-            <span col-2>{{ sensor.setpoint}}</span>
-            <span col-2>{{ sensor.actualvalue}}</span>
-            <ion-item col-3>
-              <ion-toggle [(ngModel)]="sensor.isdayplan"></ion-toggle>
+
+          </ion-row>
+
+          <ion-row>
+
+            <ion-item>
+              <ion-label col-8>Soll {{ sensor.sensortype.displayname }}</ion-label>
+              <ion-input col-4 float-right type="number" [(ngModel)]="sensor.setpoint"></ion-input>
             </ion-item>
           </ion-row>
+
+
+          <ion-row>
+
+            <ion-item>
+              <ion-label col-8>Ist {{ sensor.sensortype.displayname }}</ion-label>
+              <ion-input col-4 float-right type="number" [(ngModel)]="sensor.actualvalue"></ion-input>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+
+            <ion-item>
+              <ion-label col-8>mit Zeitplan</ion-label>
+              <ion-toggle offset-2 col-2 [(ngModel)]="sensor.isdayplan"></ion-toggle>
+            </ion-item>
+          </ion-row>
+
         </ion-card-content>
       </ion-grid>
 
-      <ion-list *ngIf="sensor.isdayplan">
-        <ion-item *ngFor="let dayplan of sensor.dayplans; let i = index;">
-          <ion-grid>
-            <ion-row>
-              <span col-2>{{ dayplan.day }}</span>
-              <span col-4>{{ dayplan.fromtime }}</span>
-              <span col-4>{{ dayplan.totime }}</span>
-              <span col-2>{{ dayplan.setpoint }}</span>
-            </ion-row>
-          </ion-grid>
-        </ion-item>
-      </ion-list>
+      <ion-card *ngIf="sensor.isdayplan" >
+        <ion-card-header>
+
+        </ion-card-header>
+
+        <ion-card-content>
+
+          <ion-list *ngIf="sensor.isdayplan">
+            <ion-item>
+              <span col-2>Tag</span>
+              <span col-4>Von</span>
+              <span col-4>Bis</span>
+              <span col-2>Sollwert</span>
+              <hr />
+            </ion-item>
+            <ion-item *ngFor="let dayplan of sensor.dayplans; let i = index;">
+              <ion-grid>
+                <ion-row>
+                  <span col-2>{{ dayplan.day }}</span>
+                  <span col-4>{{ dayplan.fromtime }}</span>
+                  <span col-4>{{ dayplan.totime }}</span>
+                  <span col-2>{{ dayplan.setpoint }}</span>
+                  <hr />
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <!--- zeitplan card -->
+
     </ion-card>
+    <!--- sensor card -->
   </ion-list>
 </ion-content>
