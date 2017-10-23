@@ -1,6 +1,7 @@
 <ion-header>
 
   <ion-navbar>
+    <ion-icon name="bluetooth"></ion-icon>
     <ion-title text-center>ZLE SensorSwitch</ion-title>
   </ion-navbar>
 
@@ -16,43 +17,44 @@
           <hr />
         </ion-card-header>
         <ion-card-content>
-          <ion-row>
-            <ion-item>
-              <ion-label col-10>Start/Stop</ion-label>
-              <ion-toggle col-2 [(ngModel)]="sensor.isactive"></ion-toggle>
-            </ion-item>
 
-          </ion-row>
-
-          <ion-row>
-
-            <ion-item>
-              <ion-label col-8>Soll {{ sensor.sensortype.displayname }}</ion-label>
-              <ion-input col-4 float-right type="number" [(ngModel)]="sensor.setpoint"></ion-input>
+          <ion-row align-items-baseline justify-content-start>
+            <ion-icon col-1 name="play"></ion-icon>
+            <ion-item col-9> 
+              <ion-label >Start/Stop</ion-label>
+              <ion-toggle  [(ngModel)]="sensor.isactive"></ion-toggle>
             </ion-item>
           </ion-row>
 
-
-          <ion-row>
-
-            <ion-item>
-              <ion-label col-8>Ist {{ sensor.sensortype.displayname }}</ion-label>
-              <ion-input col-4 float-right type="number" [(ngModel)]="sensor.actualvalue"></ion-input>
-            </ion-item>
+          <ion-row align-items-baseline justify-content-end>
+            <ion-icon col-1 name="{{ sensor.sensortype.icon}}"></ion-icon>
+              <ion-label col-6>Soll {{ sensor.sensortype.displayname }}</ion-label>
+              <ion-input col-4 type="number" [(ngModel)]="sensor.setpoint"></ion-input>
           </ion-row>
 
-          <ion-row>
 
-            <ion-item>
-              <ion-label col-8>mit Zeitplan</ion-label>
-              <ion-toggle offset-2 col-2 [(ngModel)]="sensor.isdayplan"></ion-toggle>
+          <ion-row align-items-baseline justify-content-end>
+            <ion-icon col-1 name="{{ sensor.sensortype.icon}}"></ion-icon>
+        
+              <ion-label col-6 >Ist {{ sensor.sensortype.displayname }}</ion-label>
+              <ion-input col-4 type="number" [(ngModel)]="sensor.actualvalue"></ion-input>
+
+            
+
+          </ion-row>
+
+          <ion-row align-items-baseline justify-content-start >
+            <ion-icon col-1 name="watch"></ion-icon>
+            <ion-item col-9>
+              <ion-label >mit Zeitplan</ion-label>
+              <ion-toggle   [(ngModel)]="sensor.isdayplan"></ion-toggle>
             </ion-item>
           </ion-row>
 
         </ion-card-content>
       </ion-grid>
 
-      <ion-card *ngIf="sensor.isdayplan" >
+      <ion-card *ngIf="sensor.isdayplan">
         <ion-card-header>
 
         </ion-card-header>

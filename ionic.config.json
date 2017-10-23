@@ -1,6 +1,6 @@
 {
   "name": "zle-sensorswitch",
-  "app_id": "",
+  "app_id": "0096e32d",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

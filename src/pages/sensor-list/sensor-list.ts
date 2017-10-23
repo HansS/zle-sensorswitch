@@ -34,7 +34,7 @@ export class SensorListPage {
   addSensorplan(sensor: Sensor){
     console.log('addSensorplan:',sensor);
     
-    this.navCtrl.push(SensorplanListPage, sensor);
+    this.navCtrl.push('SensorplanList', sensor);
   }
   addPlan(sensor: Sensor){
     this.navCtrl.push(SensorplanListPage, sensor);

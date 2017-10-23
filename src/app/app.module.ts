@@ -9,13 +9,13 @@ import { MyApp } from './app.component';
 import { SensorService } from '../pages/sensor/sensor.service';
 // sensor list
 import { SensorListPageModule } from './../pages/sensor-list/sensor-list.module';
-import { SensorListPage } from "../pages/sensor-list/sensor-list";
+//import { SensorListPage } from "../pages/sensor-list/sensor-list";
 // sensorplan list
 import { SensorplanListPageModule } from '../pages/sensorplan-list/sensorplan-list.module';
-import { SensorplanListPage } from '../pages/sensorplan-list/sensorplan-list';
+//import { SensorplanListPage } from '../pages/sensorplan-list/sensorplan-list';
 // sensorplan add
 import { SensorplanAddPageModule } from '../pages/sensorplan-add/sensorplan-add.module';
-import { SensorplanAddPage } from '../pages/sensorplan-add/sensorplan-add';
+//import { SensorplanAddPage } from '../pages/sensorplan-add/sensorplan-add';
 
 
 @NgModule({
@@ -34,9 +34,9 @@ import { SensorplanAddPage } from '../pages/sensorplan-add/sensorplan-add';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SensorplanListPage,
-    SensorListPage,
-    SensorplanAddPage
+    //SensorplanListPage,
+    //SensorListPage,
+    //SensorplanAddPage
   ],
   providers: [
     StatusBar,
